@@ -33,6 +33,9 @@ function updateProgress(isCorrect) {
         incorrectCount++;
         localStorage.setItem('incorrectCount', incorrectCount);
     }
+
+    document.getElementById('correctCount').innerText = localStorage.getItem('correctCount') || 0;
+    document.getElementById('incorrectCount').innerText = localStorage.getItem('incorrectCount') || 0;
 }
 
 document.getElementById('raise').addEventListener('click', () => {
