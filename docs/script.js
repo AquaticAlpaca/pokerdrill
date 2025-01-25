@@ -4,6 +4,12 @@ const hands = [
     // Add more hands as needed
 ];
 
+const handStrategies = {
+    'UTG': { 'A♠ K♠': 'raise', 'Q♦ J♦': 'fold' },
+    'HJ': { 'A♠ K♠': 'raise', 'Q♦ J♦': 'raise' },
+    // Add more strategies for other positions and hands
+};
+
 function getRandomHand() {
     return hands[Math.floor(Math.random() * hands.length)];
 }
@@ -17,13 +23,27 @@ function displayHand() {
 }
 
 document.getElementById('raise').addEventListener('click', () => {
-    alert('You chose to Raise!');
-    // Logic to check if the decision was correct
+    const currentHand = document.getElementById('hand').innerText;
+    const currentPosition = document.getElementById('position').innerText;
+    const correctDecision = handStrategies[currentPosition][currentHand];
+
+    if (correctDecision === 'raise') {
+        alert('Correct! Raising is the right decision.');
+    } else {
+        alert('Incorrect! You should have folded.');
+    }
 });
 
 document.getElementById('fold').addEventListener('click', () => {
-    alert('You chose to Fold!');
-    // Logic to check if the decision was correct
+    const currentHand = document.getElementById('hand').innerText;
+    const currentPosition = document.getElementById('position').innerText;
+    const correctDecision = handStrategies[currentPosition][currentHand];
+
+    if (correctDecision === 'fold') {
+        alert('Correct! Folding is the right decision.');
+    } else {
+        alert('Incorrect! You should have raised.');
+    }
 });
 
 // Initialize the app
