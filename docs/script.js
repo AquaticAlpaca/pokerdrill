@@ -1,3 +1,6 @@
+let correctCount = localStorage.getItem('correctCount') || 0;
+let incorrectCount = localStorage.getItem('incorrectCount') || 0;
+
 const hands = [
     { hand: 'A♠ K♠', position: 'UTG', stack: 100, remaining: 'HJ, CO, BU, SB, BB' },
     { hand: 'Q♦ J♦', position: 'HJ', stack: 80, remaining: 'CO, BU, SB, BB' },
@@ -22,6 +25,16 @@ function displayHand() {
     document.getElementById('remaining').innerText = remaining;
 }
 
+function updateProgress(isCorrect) {
+    if (isCorrect) {
+        correctCount++;
+        localStorage.setItem('correctCount', correctCount);
+    } else {
+        incorrectCount++;
+        localStorage.setItem('incorrectCount', incorrectCount);
+    }
+}
+
 document.getElementById('raise').addEventListener('click', () => {
     const currentHand = document.getElementById('hand').innerText;
     const currentPosition = document.getElementById('position').innerText;
@@ -32,6 +45,8 @@ document.getElementById('raise').addEventListener('click', () => {
     } else {
         alert('Incorrect! You should have folded.');
     }
+
+    updateProgress(isCorrect);
 });
 
 document.getElementById('fold').addEventListener('click', () => {
@@ -44,6 +59,8 @@ document.getElementById('fold').addEventListener('click', () => {
     } else {
         alert('Incorrect! You should have raised.');
     }
+
+    updateProgress(isCorrect);
 });
 
 // Initialize the app
