@@ -59,11 +59,11 @@ document.getElementById('fold').addEventListener('click', () => {
 
     if (correctDecision === 'fold') {
         alert('Correct! Folding is the right decision.');
+        updateProgress(true);
     } else {
         alert('Incorrect! You should have raised.');
+        updateProgress(false);
     }
-
-    updateProgress(isCorrect);
 });
 
 // Initialize the app
