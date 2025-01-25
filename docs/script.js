@@ -45,11 +45,11 @@ document.getElementById('raise').addEventListener('click', () => {
 
     if (correctDecision === 'raise') {
         alert('Correct! Raising is the right decision.');
+        updateProgress(true);
     } else {
         alert('Incorrect! You should have folded.');
+        updateProgress(false);
     }
-
-    updateProgress(isCorrect);
 });
 
 document.getElementById('fold').addEventListener('click', () => {
