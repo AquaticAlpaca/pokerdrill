@@ -1,0 +1,13 @@
+I want a web app to drill poker starting hands. The purpose of the app is to display the two-card hand held by the player (called Hero) , and test whether Hero can correctly raise or fold the hand.
+
+The app will display these elements: 
+ - Hero's two-card hand
+ - Hero's stack size (usually 100bb, but may be smaller)
+ - Hero's position (One of: UTG, HJ, CO, BU, SB)
+ - The effective stack size
+ - Any players remaining in the hand (If Hero is in the UTG position, the remaining players will be in HJ, CO, BU, SB, and BB. If Hero is in the HJ position, the remaining players will be in CO, BU, SB, and BB. If Hero is in the CO position, the remaining players will be in BU, SB, and BB. If Hero is in the CO position, the remaining players will be in BU, SB, and BB. If Hero is in the BU position, the remaining players will be in SB and BB. If Hero is in the SB position, the only remaining player will be in the BB.)
+- Action buttons: Raise or Fold
+
+The most prominent elements should be the raise and fold buttons, since Hero will always need to select one. Secondary prominence should be Hero's cards and the effective stack size.
+
+Can you write an app that fulfills these criteria, is designed for smart phones, and has a pleasing, easy-to-use design that encourages users to engage?
